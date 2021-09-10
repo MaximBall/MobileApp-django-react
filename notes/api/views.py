@@ -79,3 +79,4 @@ def updateNote(request, pk):
 def deleteNote(request, pk):
     Note.objects.get(id=pk).delete()
     return Response('Note was deleted')
+
