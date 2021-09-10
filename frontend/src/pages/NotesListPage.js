@@ -2,7 +2,7 @@ import React, {useState, useEffect} from 'react'
 import ListItem from '../components/ListItem'
 
 
-const NoteListPage = () => {
+const NotesListPage = () => {
 
     let [notes, setNotes] = useState([])
 
@@ -29,4 +29,4 @@ const NoteListPage = () => {
     )
 }
 
-export default NoteListPage
+export default NotesListPage
