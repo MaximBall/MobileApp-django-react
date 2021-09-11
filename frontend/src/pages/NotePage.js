@@ -61,6 +61,10 @@ const NotePage = ({ match, history }) => {
         history.push('/')
     }
 
+    let handleChange = (value) => {
+        setNote(note => ({ ...note, 'body': value }))
+    }
+
     return (
         <div className="note">
             <div className="note-header">
@@ -76,7 +80,7 @@ const NotePage = ({ match, history }) => {
                 )}
 
             </div>
-            <textarea onChange={(e) => {setNote({...note, 'body': e.target.value }) }} defaultValue={note?.body}></textarea>
+            <textarea onChange={(e) => { handleChange(e.target.value ) }} value={note?.body}></textarea>
         </div>
     )
 }
