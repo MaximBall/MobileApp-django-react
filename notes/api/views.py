@@ -43,7 +43,7 @@ def getRoutes(request):
 
 @api_view(['GET'])
 def getNotes(request):
-    notes = Note.objects.all()
+    notes = Note.objects.all().order_by('-updated')
     serializer = NoteSerializer(notes, many=True)
     return Response(serializer.data)
 
@@ -77,6 +77,7 @@ def updateNote(request, pk):
 
 @api_view(['DELETE'])
 def deleteNote(request, pk):
-    Note.objects.get(id=pk).delete()
+    note = Note.objects.get(id=pk)
+    note.delete()
     return Response('Note was deleted')
 
